@@ -1,3 +1,4 @@
+// src/components/RedirectCleanHash.jsx
 import { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -6,10 +7,10 @@ const RedirectCleanHash = ({ fallback = null }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const basePath = location.pathname.split("/")[1]; // e.g. 'sign-in' or 'signup'
+    const basePath = location.pathname.split("/")[1]; // 'sign-in' or 'sign-up'
     const cleanPath = `/${basePath}`;
 
-    if (location.hash || location.search || location.pathname.includes("*")) {
+    if (location.hash || location.search) {
       navigate(cleanPath, { replace: true });
     }
   }, [location, navigate]);
