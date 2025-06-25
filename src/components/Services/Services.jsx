@@ -3,49 +3,50 @@ import { ContactRound, NotebookTabsIcon, UserCheck, VideoIcon } from "lucide-rea
 import { TbMessageChatbot } from "react-icons/tb";
 
 const ServicesData = [
-  {
+ {
     id: 1,
     title: "Semester-wise Notes",
-    link: "#",
+    link: "/notes", // ✅ Navigate to Notes
     icon: <NotebookTabsIcon size={32} />,
     delay: 0.2,
   },
   {
     id: 2,
     title: "Semester-wise Learning Videos",
-    link: "#",
+    link: "/courses", // ✅ Navigate to Courses
     icon: <VideoIcon size={32} />,
     delay: 0.3,
   },
   {
     id: 3,
     title: "Lab Learning Videos",
-    link: "#",
+    link: "/courses", // ✅ Navigate to Courses
     icon: <VideoIcon size={32} />,
     delay: 0.4,
   },
   {
     id: 4,
     title: "24/7 AI Chatbot",
-    link: "#",
+    link: "/chatbot", // ✅ Navigate to Chatbot
     icon: <TbMessageChatbot size={32} />,
     delay: 0.5,
   },
   {
     id: 5,
     title: "Contact Us",
-    link: "#",
+    link: "/contact", // ✅ Navigate to Contact
     icon: <ContactRound size={32} />,
     delay: 0.6,
   },
   {
     id: 6,
     title: "User-Friendly Interface",
-    link: "#",
+    link: "/", // ✅ Navigate to Home/Hero
     icon: <UserCheck size={32} />,
     delay: 0.7,
   },
 ];
+
 
 const SlideLeft = (delay) => {
   return {
