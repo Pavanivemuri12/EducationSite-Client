@@ -1,0 +1,20 @@
+// src/components/RedirectCleanHash.jsx
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+
+const RedirectCleanHash = ({ fallback }) => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const hash = window.location.hash;
+
+    // Check if hash includes Clerk's SSO callback
+    if (hash.includes("sso-callback")) {
+      navigate("/sign-in"); // reroute to /sign-in to finish flow
+    }
+  }, [navigate]);
+
+  return fallback;
+};
+
+export default RedirectCleanHash;
