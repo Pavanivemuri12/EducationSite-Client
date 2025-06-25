@@ -28,7 +28,7 @@ const App = () => {
       <BrowserRouter>
         <Routes>
           {/* Public routes */}
-          <Route path="/sign-in" element={<Login />} />
+         <Route path="/sign-in/*" element={<RedirectCleanHash fallback={<Login />} />} />
           <Route path="/signup" element={<Signup />} /> {/* Add this */}
           <Route path="/sign-up" element={<Signup />} />{" "}
           {/* Keep this for Clerk default */}
