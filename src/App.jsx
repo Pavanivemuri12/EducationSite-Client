@@ -8,8 +8,8 @@ import Contact from "./Pages/Contact";
 import AdminCourses from "./Pages/Admin/AdminCourses";
 import AdminHero from "./components/Admin/AdminHero";
 import AdminNotes from "./Pages/Admin/AdminNotes";
-//import AdminChatbot from "./Pages/Admin/AdminChatbot";
-//import AdminContact from "./Pages/Admin/AdminContact";
+// import AdminChatbot from "./Pages/Admin/AdminChatbot";
+// import AdminContact from "./Pages/Admin/AdminContact";
 
 import WebLayout from "./Layout/WebLayout";
 import AdminLayout from "./Layout/AdminLayout";
@@ -27,25 +27,24 @@ const App = () => {
     <main className="overflow-x-hidden bg-white text-dark">
       <BrowserRouter>
         <Routes>
-          {/* Public routes */}
-         <Route path="/sign-in/*" element={<RedirectCleanHash fallback={<Login />} />} />
-          <Route path="/signup" element={<Signup />} /> {/* Add this */}
-          <Route path="/sign-up" element={<Signup />} />{" "}
-          {/* Keep this for Clerk default */}
-          <Route path="/sign-up/*" element={<RedirectCleanHash />} />
-          
+          {/* Clerk-compatible Auth routes */}
+          <Route path="/sign-in/*" element={<RedirectCleanHash fallback={<Login />} />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/sign-up" element={<Signup />} />
+          <Route path="/sign-up/*" element={<RedirectCleanHash fallback={<Signup />} />} />
+
           {/* User protected routes */}
           <Route element={<UserProtectedRoute />}>
             <Route element={<WebLayout />}>
               <Route index element={<Hero />} />
               <Route path="courses" element={<Courses />} />
-          
               <Route path="/video/:id" element={<VideoCourse />} />
               <Route path="notes" element={<Notes />} />
               <Route path="chatbot" element={<Chatbot />} />
               <Route path="contact" element={<Contact />} />
             </Route>
           </Route>
+
           {/* Admin protected routes */}
           <Route path="/admin" element={<AdminProtectedRoute />}>
             <Route element={<AdminLayout />}>
